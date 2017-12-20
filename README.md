@@ -1,3 +1,3 @@
 # To do list
 
-A to do lsit ccreated with Vue.js
+A to do list created with Vue.js
