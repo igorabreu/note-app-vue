@@ -5,4 +5,7 @@ $font-color: #000;
   .todoChecked{
     text-decoration: line-through;
   }
+  li{
+  	list-style: none;
+  }
 }
