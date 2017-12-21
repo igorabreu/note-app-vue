@@ -1,6 +1,6 @@
-# To do list
+# Note-taking App
 
-A to do list created with Vue.js
+A note-taking app created with Vue.js
 
 ``` bash
 # install dependencies
