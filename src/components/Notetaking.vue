@@ -6,12 +6,12 @@
     <li v-for='(note, index) in noteList'>
       <div v-bind:class="{ highlight : isFocus(index) }">
         <input type='checkbox' v-on:click='selectItem(index)' :checked='isSelected(index)'>
-        <span class='todo' v-on:click='onFocus(index)'>
+        <span class='todo' v-on:click='setFocus(index)'>
           {{ note.title }}
         </span>
       </div>
     </li>
-    <textarea v-if='noteList.length > 0' v-model='noteList[focusNote].text || empty'/>
+    <textarea v-if='noteList.length > 0' v-model='noteList[focusNote].text'/>
   </div>
 </template>
 
@@ -33,7 +33,6 @@ export default {
       noteTitle: '',
       selectedItems: [],
       focusNote: 0,
-      empty: '',
     };
   },
   created() {
@@ -66,6 +65,9 @@ export default {
     },
     removeItem(index) {
       this.noteList.splice(index, 1);
+      if (this.focusNote - 1 >= 0){
+        this.setFocus(this.focusNote - 1);
+      }
     },
     removeSelectItems() {
       this.sortArray(this.selectedItems);
@@ -86,19 +88,19 @@ export default {
         this.addItem();
       }
     },
-    onFocus(index) {
+    setFocus(index) {
       this.focusNote = index;
     },
     changeFocus(event) {
       switch (event.key) {
         case 'ArrowUp':
           if (this.focusNote >= 1) {
-            this.focusNote = this.focusNote - 1;
+            this.setFocus(this.focusNote - 1);
           }
           break;
         case 'ArrowDown':
           if (this.focusNote < this.noteList.length - 1) {
-            this.focusNote = this.focusNote + 1;
+            this.setFocus(this.focusNote + 1);
           }
           break;
         default:
