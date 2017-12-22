@@ -3,9 +3,10 @@
     <input v-model='noteTitle' v-on:keyup='onEnter' placeholder='Insert a note here'>
     <button v-on:click='addItem'>Add</button>
     <button v-on:click='removeSelectItems'>Remove</button>
+    <button v-on:click='selectAllItems'>Select All</button>
     <li v-for='(note, index) in noteList'>
       <div v-bind:class="{ highlight : isFocus(index) }">
-        <input type='checkbox' v-on:click='selectItem(index)' :checked='isSelected(index)'>
+        <input type='checkbox' v-on:click='selectItem(index)' v-bind:checked='isSelected(index)'>
         <span class='todo' v-on:click='setFocus(index)'>
           {{ note.title }}
         </span>
@@ -65,12 +66,11 @@ export default {
     },
     removeItem(index) {
       this.noteList.splice(index, 1);
-      if (this.focusNote - 1 >= 0){
+      if (this.focusNote - 1 >= 0) {
         this.setFocus(this.focusNote - 1);
       }
     },
     removeSelectItems() {
-      this.sortArray(this.selectedItems);
       for (let i = this.selectedItems.length - 1; i >= 0; i -= 1) {
         this.removeItem(this.selectedItems[i]);
       }
@@ -82,6 +82,7 @@ export default {
       } else {
         this.selectedItems.push(index);
       }
+      this.sortArray(this.selectedItems);
     },
     onEnter(event) {
       if (event.key === 'Enter') {
@@ -119,6 +120,14 @@ export default {
       }
 
       return array.sort(compare);
+    },
+    selectAllItems() {
+      this.selectedItems = [];
+      let value = 0;
+      for (let i = this.noteList.length - 1; i >= 0; i -= 1) {
+        this.selectedItems.push(value);
+        value += 1;
+      }
     },
   },
 };
