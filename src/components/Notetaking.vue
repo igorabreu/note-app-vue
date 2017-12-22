@@ -1,18 +1,28 @@
 <template>
-  <div class='hello'>
-    <input v-model='noteTitle' v-on:keyup='onEnter' placeholder='Insert a note here'>
-    <button v-on:click='addItem'>Add</button>
-    <button v-on:click='removeSelectItems'>Remove</button>
-    <button v-on:click='selectAllItems'>Select All</button>
-    <li v-for='(note, index) in noteList'>
-      <div v-bind:class="{ highlight : isFocus(index) }">
-        <input type='checkbox' v-on:click='selectItem(index)' v-bind:checked='isSelected(index)'>
-        <span class='todo' v-on:click='setFocus(index)'>
-          {{ note.title }}
-        </span>
+  <div>
+    <h1 class='title'>Note-taking App</h1>
+    <div class='header'>
+      <input class='noteTitle' v-model='noteTitle' v-on:keyup='onEnter' placeholder='Insert new a note here'>
+      <img class='add' v-on:click='addItem' src='../assets/add-icon.svg'/>
+    </div>
+    <div class='actions'>
+      <input type='checkbox' v-on:click='selectAllItems'>
+      <label>Select all</label>
+      <img class='remove' v-on:click='removeSelectItems' src='../assets/trash-icon.svg'/>
+    </div>
+    <div class='wrapper'>
+      <div class='notes'>
+        <li v-for='(note, index) in noteList'>
+          <div v-bind:class="{ highlight : isFocus(index) }">
+            <input type='checkbox' v-on:click='selectItem(index)' v-bind:checked='isSelected(index)'>
+            <span class='todo' v-on:click='setFocus(index)'>
+              {{ note.title }}
+            </span>
+          </div>
+        </li>
       </div>
-    </li>
-    <textarea v-if='noteList.length > 0' v-model='noteList[focusNote].text'/>
+      <textarea class='details' v-if='noteList.length > 0' v-model='noteList[focusNote].text'/>
+    </div>
   </div>
 </template>
 

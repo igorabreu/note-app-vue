@@ -1,15 +1,92 @@
-$font-color: #000;
-$light-gray: #6d6d6d;
+@import url('https://fonts.googleapis.com/css?family=Nunito');
 
-.hello{
-  color: $font-color;
-  .todoChecked{
-    text-decoration: line-through;
+$purple: #8844ee;
+$green: #1abc9c;
+$white: #fff;
+$gray: #555;
+$light-gray: #6d6d6d;
+$font: 'Nunito';
+
+body {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  width: 100vw;
+  height: 100%;
+  color: $gray;
+  font-family: $font;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  button {
+    margin: 0;
+    outline: 0;
+    vertical-align: middle;
+    border: none;
+    cursor: pointer;
   }
-  li{
-    list-style: none;
-    .highlight{
-      background-color: $light-gray;
+  input {
+    font-family: $font;
+    color: $gray;
+    border: none;
+    border-bottom: 1px solid $green;
+    &:focus{
+      outline: none;
+    };
+  }
+  .title{
+    color: $purple;
+    text-align: center;
+  }
+  .header {
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    .noteTitle {
+      height: 30px;
+      font-size: 12pt;
+      margin-right: 10px;
+      text-align: center;
+    }
+    .add {
+      font-size: 12pt;
+      height: 30px;
+      transform: translateY(10px);
+    }
+  }
+  .actions{
+    text-align: center;
+    height: 100px;
+    .remove {
+      height: 22px;
+      width: 22px;
+      padding: 3px;
+      cursor: pointer;
+      transform: translateY(10px);
+      &:hover{
+        opacity: 0.5;
+      };
+    }
+    .selectAll {
+      height: 30px;
+    }
+  }
+  .wrapper{
+    display: flex;
+    justify-content: center;
+    .notes {
+      width: 300px;
+      li {
+        width: 200px;
+        cursor: pointer;
+        list-style: none;
+        .highlight {
+          color: $white;
+          background: $purple;
+        }
+      }
+    }
+    .details{
+      width: 400px;
     }
   }
 }
