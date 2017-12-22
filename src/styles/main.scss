@@ -1,4 +1,5 @@
 $font-color: #000;
+$light-gray: #6d6d6d;
 
 .hello{
   color: $font-color;
@@ -6,6 +7,9 @@ $font-color: #000;
     text-decoration: line-through;
   }
   li{
-  	list-style: none;
+    list-style: none;
+    .highlight{
+      background-color: $light-gray;
+    }
   }
 }
