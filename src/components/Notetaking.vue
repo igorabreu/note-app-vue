@@ -37,7 +37,7 @@ export default {
     return {
       noteList: [
         {
-          title: 'Costumer address',
+          title: "Custumer's address",
           text: '',
         },
         {
@@ -52,7 +52,6 @@ export default {
   },
   created() {
     window.addEventListener('keyup', this.changeFocus);
-   // this.interval = setInterval( () => { this.log(); }, 1000);
   },
   methods: {
     addItem() {

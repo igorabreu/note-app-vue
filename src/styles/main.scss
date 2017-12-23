@@ -25,6 +25,9 @@ body {
     border: none;
     cursor: pointer;
   }
+  input[type="checkbox"] {
+    transform: translateY(1px);
+  }
   input {
     font-family: $font;
     color: $gray;
@@ -32,7 +35,7 @@ body {
     border-bottom: 1px solid $green;
     &:focus {
       outline: none;
-    };
+    }
   }
   #app{
     height: calc(100vh - 20px);
@@ -60,7 +63,7 @@ body {
           cursor: pointer;
           &:hover {
             opacity: 0.5;
-          };
+          }
         }
       }
       .content-wrapper {
@@ -90,10 +93,9 @@ body {
               transform: translateY(5px);
               &:hover{
                 opacity: 0.5;
-              };
+              }
             }
             .select-label {
-              height: 30px;
               width: 300px;
             }
 
@@ -133,7 +135,7 @@ body {
             }
             &:focus {
               outline: none;
-            };
+            }
             &::placeholder {
               color: $white;
             }
