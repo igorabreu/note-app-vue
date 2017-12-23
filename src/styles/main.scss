@@ -110,7 +110,7 @@ body {
     .details {
       padding-top: 45px;
       min-width: 50vw;
-      min-height: 150px;
+      min-height: 200px;
       border: none;
       border-left: 1px solid $purple;
       background: $purple-gradient;
@@ -124,7 +124,7 @@ body {
         border: none;
         resize: none;
         min-width: 90vw;
-        height: 90%;
+        height: 80%;
         color: $white;
         background: transparent;
         @media(min-width: 768px) {
