@@ -2,6 +2,9 @@
 
 A note-taking app created with Vue.js
 
+[https://igorabreu.github.io/note-app-vue/](https://igorabreu.github.io/note-app-vue/)
+
+
 ``` bash
 # install dependencies
 npm install
