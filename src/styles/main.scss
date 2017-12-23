@@ -34,107 +34,110 @@ body {
       outline: none;
     };
   }
-  .title {
-    color: $purple;
-    text-align: center;
-  }
-  .header {
-    height: 40px;
-    display: flex;
-    justify-content: center;
-    margin-bottom: 30px;
-    .noteTitle {
-      height: 30px;
-      font-size: 12pt;
-      margin-right: 10px;
-      text-align: center;
-    }
-    .add {
-      font-size: 12pt;
-      height: 30px;
-      transform: translateY(10px);
-      cursor: pointer;
-      &:hover {
-        opacity: 0.5;
-      };
-    }
-  }
-  .wrapper {
-    display: flex;
-    justify-content: center;
-    height: 100%;
-    flex-wrap: wrap;
-    @media(min-width: 768px) {
-      flex-wrap: nowrap;
-    }
-    .board {
-      background-color: $light-gray;
-      min-width: 50vw;
-      width: 100vw;
-      @media(min-width: 768px) {
-        height: 300px;
-        width: auto;
+  #app{
+    height: calc(100vh - 20px);
+    #wrapper{
+      height: 100%;
+      .title {
+        color: $purple;
+        text-align: center;
       }
-      .actions {
+      .header {
         height: 40px;
-        margin: 15px;
-        border-bottom: 1px solid $green;
-        .remove {
-          float: right;
-          height: 22px;
-          width: 22px;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 30px;
+        .noteTitle {
+          height: 30px;
+          font-size: 12pt;
+          margin-right: 10px;
+          text-align: center;
+        }
+        .add {
+          font-size: 12pt;
+          height: 30px;
+          transform: translateY(10px);
           cursor: pointer;
-          transform: translateY(5px);
-          &:hover{
+          &:hover {
             opacity: 0.5;
           };
         }
-        .selectAll {
-          height: 30px;
-          width: 300px;
-        }
-
       }
-      .notes {
-        margin: 15px;
-        li {
-          cursor: pointer;
-          list-style: none;
-          .highlight {
-            color: $white;
-            background: $purple;
+      .content-wrapper {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        height: 75vh;
+        @media(min-width: 768px) {
+          flex-wrap: nowrap;
+        }
+        .board {
+          background-color: $light-gray;
+          min-width: 50vw;
+          width: 100vw;
+          @media(min-width: 768px) {
+            width: auto;
+          }
+          .actions {
+            height: 40px;
+            margin: 15px;
+            border-bottom: 1px solid $green;
+            .remove {
+              float: right;
+              height: 22px;
+              width: 22px;
+              cursor: pointer;
+              transform: translateY(5px);
+              &:hover{
+                opacity: 0.5;
+              };
+            }
+            .select-label {
+              height: 30px;
+              width: 300px;
+            }
+
+          }
+          .notes {
+            margin: 15px;
+            li {
+              cursor: pointer;
+              list-style: none;
+              .highlight {
+                color: $white;
+                background: $purple;
+              }
+            }
           }
         }
-      }
-    }
-    .details {
-      padding-top: 45px;
-      min-width: 50vw;
-      min-height: 200px;
-      border: none;
-      border-left: 1px solid $purple;
-      background: $purple-gradient;
-      display: flex;
-      justify-content: center;
-      width: 100vw;
-      @media(min-width: 768px) {
-        width: auto;
-      }
-      textarea {
-        border: none;
-        resize: none;
-        min-width: 90vw;
-        height: 80%;
-        color: $white;
-        background: transparent;
-        @media(min-width: 768px) {
-          min-width: 45vw;
-        }
-        &:focus {
-          outline: none;
-        };
-        &::placeholder {
-          color: $white;
+        .details {
+          padding-top: 45px;
+          min-width: 50vw;
+          border: none;
+          border-left: 1px solid $purple;
+          background: $purple-gradient;
+          display: flex;
+          justify-content: center;
+          width: 100vw;
+          @media(min-width: 768px) {
+            width: auto;
+          }
+          textarea {
+            border: none;
+            resize: none;
+            min-width: 90vw;
+            color: $white;
+            background: transparent;
+            @media(min-width: 768px) {
+              min-width: 45vw;
+            }
+            &:focus {
+              outline: none;
+            };
+            &::placeholder {
+              color: $white;
+            }
+          }
         }
       }
     }
