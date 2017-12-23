@@ -2,26 +2,30 @@
   <div>
     <h1 class='title'>Note-taking App</h1>
     <div class='header'>
-      <input class='noteTitle' v-model='noteTitle' v-on:keyup='onEnter' placeholder='Insert new a note here'>
+      <input class='noteTitle' v-model='noteTitle' v-on:keyup='onEnter' placeholder='Add a new note here'>
       <img class='add' v-on:click='addItem' src='../assets/add-icon.svg'/>
     </div>
-    <div class='actions'>
-      <input type='checkbox' v-on:click='selectAllItems'>
-      <label>Select all</label>
-      <img class='remove' v-on:click='removeSelectItems' src='../assets/trash-icon.svg'/>
-    </div>
     <div class='wrapper'>
-      <div class='notes'>
-        <li v-for='(note, index) in noteList'>
-          <div v-bind:class="{ highlight : isFocus(index) }">
-            <input type='checkbox' v-on:click='selectItem(index)' v-bind:checked='isSelected(index)'>
-            <span class='todo' v-on:click='setFocus(index)'>
-              {{ note.title }}
-            </span>
-          </div>
-        </li>
+      <div class='listHeader'>
+        <div class='actions'>
+          <input class='selectAllCheck' type='checkbox' v-on:click='selectAllItems' v-bind:checked='isAllSelected()'>
+          <label class='selectAll'>All</label>
+          <img class='remove' v-on:click='removeSelectItems' src='../assets/trash-icon.svg'/>
+        </div>
+        <div class='notes'>
+          <li v-for='(note, index) in noteList'>
+            <div v-bind:class="{ highlight : isFocus(index) }">
+              <input type='checkbox' v-on:click='selectItem(index)' v-bind:checked='isSelected(index)'>
+              <span class='note' v-on:click='setFocus(index)'>
+                {{ note.title }}
+              </span>
+            </div>
+          </li>
+        </div>
       </div>
-      <textarea class='details' v-if='noteList.length > 0' v-model='noteList[focusNote].text'/>
+      <div class='details'>
+        <textarea placeholder='Write a description here' v-if='noteList.length > 0' v-model='noteList[focusNote].text'/>
+      </div>
     </div>
   </div>
 </template>
@@ -33,11 +37,11 @@ export default {
     return {
       noteList: [
         {
-          title: 'Ir ao supermercado',
+          title: 'Costumer address',
           text: '',
         },
         {
-          title: 'Cortar o cabelo',
+          title: '12/22 daily meeting',
           text: '',
         },
       ],
@@ -131,7 +135,17 @@ export default {
 
       return array.sort(compare);
     },
+    isAllSelected() {
+      if (this.selectedItems.length === this.noteList.length) {
+        return true;
+      }
+      return false;
+    },
     selectAllItems() {
+      if (this.isAllSelected()) {
+        this.selectedItems = [];
+        return;
+      }
       this.selectedItems = [];
       let value = 0;
       for (let i = this.noteList.length - 1; i >= 0; i -= 1) {
