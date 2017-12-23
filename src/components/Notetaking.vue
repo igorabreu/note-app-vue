@@ -6,7 +6,7 @@
       <img class='add' v-on:click='addItem' src='../assets/add-icon.svg'/>
     </div>
     <div class='wrapper'>
-      <div class='listHeader'>
+      <div class='board'>
         <div class='actions'>
           <input class='selectAllCheck' type='checkbox' v-on:click='selectAllItems' v-bind:checked='isAllSelected()'>
           <label class='selectAll'>All</label>

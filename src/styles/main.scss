@@ -63,10 +63,18 @@ body {
     display: flex;
     justify-content: center;
     height: 100%;
-    .listHeader {
-      height: 300px;
+    flex-wrap: wrap;
+    @media(min-width: 768px) {
+      flex-wrap: nowrap;
+    }
+    .board {
       background-color: $light-gray;
       min-width: 50vw;
+      width: 100vw;
+      @media(min-width: 768px) {
+        height: 300px;
+        width: auto;
+      }
       .actions {
         height: 40px;
         margin: 20px;
@@ -102,18 +110,26 @@ body {
     .details {
       padding-top: 45px;
       min-width: 50vw;
+      min-height: 150px;
       border: none;
       border-left: 1px solid $purple;
       background: $purple-gradient;
       display: flex;
       justify-content: center;
+      width: 100vw;
+      @media(min-width: 768px) {
+        width: auto;
+      }
       textarea {
         border: none;
         resize: none;
-        min-width: 45vw;
+        min-width: 90vw;
         height: 90%;
         color: $white;
         background: transparent;
+        @media(min-width: 768px) {
+          min-width: 45vw;
+        }
         &:focus {
           outline: none;
         };
