@@ -14,9 +14,9 @@
         </div>
         <div class='notes'>
           <li v-for='(note, index) in noteList'>
-            <div v-bind:class="{ highlight : isFocus(index) }">
+            <div v-bind:class="{ highlight : isFocus(index) }" v-on:click='setFocus(index)'>
               <input type='checkbox' v-on:click='selectItem(index)' v-bind:checked='isSelected(index)'>
-              <span class='note' v-on:click='setFocus(index)'>
+              <span class='note'>
                 {{ note.title }}
               </span>
             </div>
