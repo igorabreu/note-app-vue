@@ -50,9 +50,9 @@ body {
         display: flex;
         justify-content: center;
         margin-bottom: 30px;
-        .noteTitle {
+        .note-title {
           height: 30px;
-          font-size: 12pt;
+          font-size: 11pt;
           margin-right: 10px;
           text-align: center;
         }
@@ -70,16 +70,17 @@ body {
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
-        height: 75vh;
+        height: 80vh;
         @media(min-width: 768px) {
           flex-wrap: nowrap;
+          height: 75vh;
         }
         .board {
           background-color: $light-gray;
-          min-width: 50vw;
           width: 100vw;
           @media(min-width: 768px) {
             width: auto;
+            min-width: 50vw;
           }
           .actions {
             height: 40px;

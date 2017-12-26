@@ -75,7 +75,7 @@ export default {
       return index === this.focusNote;
     },
     isSelected(index) {
-      return this.selectedItems.includes(index);
+      return this.selectedItems.indexOf(index) > -1;
     },
     removeItem(index) {
       this.noteList.splice(index, 1);
